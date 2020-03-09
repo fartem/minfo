@@ -13,7 +13,7 @@ module Minfo
     end
 
     def to_gb
-      (@memory_value.to_f / 1048576).round(2)
+      (@memory_value.to_f / 1_048_576).round(2)
     end
   end
 end

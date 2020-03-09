@@ -3,7 +3,7 @@ require_relative '../lib/minfo.rb'
 
 class MinfoUsedTest < Test::Unit::TestCase
   def test_used
-    used = Minfo::Memory.new.memory_shot.used
+    used = Minfo::MemoryInfo.new.memory_shot.used
 
     assert_equal(
       false,

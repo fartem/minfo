@@ -5,7 +5,7 @@ module Minfo
 
   class MemoryShot
     def initialize
-      @memory_shot = Hash.new
+      @memory_shot = {}
     end
 
     def total
@@ -15,21 +15,28 @@ module Minfo
 
     def prepare_memory_shot
       if @memory_shot.empty?
-        raise OSInfoUnavailable, 'Cannot find or read /proc/meminfo' unless File.exist?('/proc/meminfo')
+        raise OSInfoUnavailable unless File.exist?('/proc/meminfo')
 
-        total = 0
-        free = 0
-        File.open('/proc/meminfo').read.each_line { |line|
-          if line.start_with?('MemTotal:')
-            total = extract_memory_value(line)
-            @memory_shot['total'] = MemoryUnit.new(total)
-          elsif line.start_with?('MemFree:')
-            free = extract_memory_value(line)
-            @memory_shot['free'] = MemoryUnit.new(free)
-          end
-        }
-        @memory_shot['used'] = MemoryUnit.new(total - free)
+        parse_memory_info
       end
+    end
+
+    def parse_memory_info
+      File.open('/proc/meminfo').read.each_line do |line|
+        if line.start_with?('MemTotal:')
+          @memory_shot['total'] = memory_unit(line)
+        elsif line.start_with?('MemFree:')
+          @memory_shot['free'] = memory_unit(line)
+        end
+      end
+      @memory_shot['used'] = MemoryUnit.new(
+        @memory_shot['total'] - @memory_shot['free']
+      )
+    end
+
+    def memory_unit(line)
+      total = extract_memory_value(line)
+      MemoryUnit.new(total)
     end
 
     def extract_memory_value(proc_string)

@@ -3,7 +3,7 @@ require_relative 'minfo/memory_shot'
 module Minfo
   class PlatformError < StandardError; end
 
-  class Memory
+  class MemoryInfo
     def memory_shot
       return Minfo::MemoryShot.new if RUBY_PLATFORM.include?('linux')
 

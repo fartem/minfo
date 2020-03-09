@@ -10,17 +10,18 @@ class MinfoTotalTest < Test::Unit::TestCase
       total.nil?
     )
 
+    kb = total.to_kb
     assert_equal(
       true,
-      total.to_kb > 0
+      kb > 1024 * 1024
     )
     assert_equal(
-      true,
-      total.to_mb > 0
+      (kb.to_f / 1024).round(0),
+      total.to_mb
     )
     assert_equal(
-      true,
-      total.to_gb > 0
+      (kb.to_f / 1024 / 1024).round(2),
+      total.to_gb
     )
   end
 end

@@ -10,17 +10,18 @@ class MinfoUsedTest < Test::Unit::TestCase
       used.nil?
     )
 
+    kb = used.to_kb
     assert_equal(
       true,
-      used.to_kb > 0
+      kb > 1024 * 1024
     )
     assert_equal(
-      true,
-      used.to_mb > 0
+      (kb.to_f / 1024).round(0),
+      used.to_mb
     )
     assert_equal(
-      true,
-      used.to_gb > 0
+      (kb.to_f / 1024 / 1024).round(2),
+      used.to_gb
     )
   end
 end

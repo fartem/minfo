@@ -10,17 +10,19 @@ class MinfoFreeTest < Test::Unit::TestCase
       free.nil?
     )
 
+    kb = free.to_kb
     assert_equal(
       true,
-      free.to_kb > 0
+      kb > 1024 * 1024
+    )
+
+    assert_equal(
+      (kb.to_f / 1024).round(0),
+      free.to_mb
     )
     assert_equal(
-      true,
-      free.to_mb > 0
-    )
-    assert_equal(
-      true,
-      free.to_gb > 0
+      (kb.to_f / 1024 / 1024).round(2),
+      free.to_gb
     )
   end
 end

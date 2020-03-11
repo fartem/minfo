@@ -1,6 +1,6 @@
 ## About
 
-Tiny library for displaying memory usage on Linux (inspired by https://github.com/yegor256/total) 
+Tiny library for displaying memory usage on Linux (inspired by https://github.com/yegor256/total).
 
 ## Usage example
 

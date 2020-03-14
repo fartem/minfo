@@ -1,4 +1,4 @@
-require 'test/unit'
+require 'minitest/autorun'
 require_relative '../../lib/minfo.rb'
 
 class MinfoFreeTest < Test::Unit::TestCase

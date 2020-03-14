@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative '../lib/minfo.rb'
+require_relative '../../lib/minfo.rb'
 
 class MinfoFreeTest < Test::Unit::TestCase
   def test_used

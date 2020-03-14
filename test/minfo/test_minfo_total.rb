@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../../lib/minfo.rb'
 
-class MinfoTotalTest < Test::Unit::TestCase
+class MinfoTotalTest < Minitest::Test
   def test_total
     total = Minfo::MemoryInfo.new.memory_shot.total
 

@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require_relative '../../lib/minfo.rb'
 
-class MinfoUsedTest < Test::Unit::TestCase
+class MinfoUsedTest < Minitest::Test
   def test_used
     used = Minfo::MemoryInfo.new.memory_shot.used
 

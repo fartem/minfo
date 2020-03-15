@@ -1,7 +1,7 @@
 require 'rake/testtask'
 require 'rake/clean'
 
-task default: %w[clean test rubocop]
+task default: %i[clean test rubocop]
 
 desc 'Run all unit tests'
 Rake::TestTask.new(:test) do |test|

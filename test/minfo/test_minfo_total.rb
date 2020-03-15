@@ -1,6 +1,7 @@
+require_relative '../test__helper.rb'
+
 require 'minitest/autorun'
 require_relative '../../lib/minfo.rb'
-require_relative '../test__helper.rb'
 
 class MinfoTotalTest < Minitest::Test
   def test_total

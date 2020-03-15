@@ -22,7 +22,7 @@ module Minfo
 
     # Method for memory calculation support.
     def -(other)
-      to_kb - other.to_kb
+      MemoryUnit.new(to_kb - other.to_kb)
     end
   end
 end

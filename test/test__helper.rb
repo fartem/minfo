@@ -1,9 +1,6 @@
 require 'simplecov'
 
-SimpleCov.start do
-  track_files 'lib/**/*.rb'
-end
-
+SimpleCov.start
 if ENV.include? 'CODECOV_TOKEN'
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov

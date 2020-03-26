@@ -1,3 +1,5 @@
+<img src="media/logo/ic_lib.png" height="100px" />
+
 Minfo
 =============
 

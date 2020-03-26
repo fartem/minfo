@@ -11,5 +11,5 @@ Usage example
 
 ```ruby
 memory_shot = Minfo::MemoryInfo.new.memory_shot
-puts memory_shot.free.to_mb
+puts memory_shot.total.to_gb.value
 ```

@@ -1,3 +1,7 @@
+require_relative 'units/minfo_kb.rb'
+require_relative 'units/minfo_mb.rb'
+require_relative 'units/minfo_gb.rb'
+
 module Minfo
   # Class for storing memory value.
   class MemoryUnit
@@ -7,22 +11,22 @@ module Minfo
 
     # Get memory value in kbs.
     def to_kb
-      @memory_value
+      MinfoKb.new(@memory_value)
     end
 
     # Get memory value in mbs.
     def to_mb
-      @memory_value / 1024
+      MinfoMb.new(@memory_value)
     end
 
     # Get memory value in gbs.
     def to_gb
-      (@memory_value.to_f / 1024 / 1024).round(2)
+      MinfoGb.new(@memory_value)
     end
 
     # Method for memory calculation support.
     def -(other)
-      MemoryUnit.new(to_kb - other.to_kb)
+      MemoryUnit.new((to_kb - other.to_kb).value)
     end
   end
 end

@@ -29,7 +29,7 @@ module Minfo
     def _parse_proc_info_for(parameter)
       raise OSInfoUnavailable unless File.exist?('/proc/meminfo')
 
-      value = 0
+      value = MemoryUnit.new(0)
       File.open('/proc/meminfo').read.each_line do |line|
         value = _memory_unit(line) if line.start_with?(parameter)
       end

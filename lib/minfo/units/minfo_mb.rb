@@ -9,8 +9,16 @@ module Minfo
       @mbs
     end
 
+    def +(other)
+      MinfoMb.new(value + other.value)
+    end
+
     def -(other)
       MinfoMb.new(value - other.value)
+    end
+
+    def ==(other)
+      value == other.value
     end
   end
 end

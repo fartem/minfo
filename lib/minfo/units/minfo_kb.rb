@@ -9,8 +9,16 @@ module Minfo
       @kbs
     end
 
+    def +(other)
+      MinfoKb.new(value + other.value)
+    end
+
     def -(other)
       MinfoKb.new(value - other.value)
+    end
+
+    def ==(other)
+      value == other.value
     end
   end
 end

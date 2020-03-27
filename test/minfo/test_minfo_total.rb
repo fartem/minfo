@@ -9,8 +9,8 @@ class MinfoTotalTest < Minitest::Test
 
     assert(!total.nil?)
 
-    assert(total.minfo_kbs.value > 0)
-    assert(total.minfo_mbs.value > 0)
-    assert(total.minfo_gbs.value > 0)
+    assert(total.to_kbs > 0)
+    assert(total.to_mbs > 0)
+    assert(total.to_gbs > 0)
   end
 end

@@ -9,8 +9,8 @@ class MinfoFreeTest < Minitest::Test
 
     assert(!free.nil?)
 
-    assert(free.minfo_kbs.value > 0)
-    assert(free.minfo_mbs.value > 0)
-    assert(free.minfo_gbs.value > 0)
+    assert(free.to_kbs > 0)
+    assert(free.to_mbs > 0)
+    assert(free.to_gbs > 0)
   end
 end

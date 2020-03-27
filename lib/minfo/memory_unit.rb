@@ -1,32 +1,28 @@
-require_relative 'units/minfo_kbs.rb'
-require_relative 'units/minfo_mbs.rb'
-require_relative 'units/minfo_gbs.rb'
-
 module Minfo
   # Class for storing memory value.
   class MemoryUnit
-    def initialize(memory_value)
-      @memory_value = memory_value
+    def initialize(kbs)
+      @kbs = kbs
     end
 
     # Get memory value in kbs.
-    def minfo_kbs
-      MinfoKbs.new(@memory_value)
+    def to_kbs
+      @kbs
     end
 
     # Get memory value in mbs.
-    def minfo_mbs
-      MinfoMbs.new(@memory_value)
+    def to_mbs
+      @kbs / 1024
     end
 
     # Get memory value in gbs.
-    def minfo_gbs
-      MinfoGbs.new(@memory_value)
+    def to_gbs
+      (@kbs / 1024 / 1024).round(2)
     end
 
     # Method for memory calculation support.
     def -(other)
-      MemoryUnit.new((minfo_kbs - other.minfo_kbs).value)
+      MemoryUnit.new(@kbs - other.to_kbs)
     end
   end
 end

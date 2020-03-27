@@ -17,7 +17,7 @@ module Minfo
 
     # Get memory value in gbs.
     def to_gbs
-      (@kbs / 1024 / 1024).round(2)
+      (@kbs.to_f / 1024 / 1024).round(2)
     end
 
     # Method for memory calculation support.

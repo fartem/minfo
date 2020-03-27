@@ -1,7 +1,8 @@
 module Minfo
   # Memory value representations in mbs
-  class MinfoMb
+  class MinfoMbs
     def initialize(kbs)
+      @kbs = kbs
       @mbs = kbs / 1024
     end
 
@@ -9,12 +10,16 @@ module Minfo
       @mbs
     end
 
+    def to_kbs
+      @kbs
+    end
+
     def +(other)
-      MinfoMb.new(value + other.value)
+      MinfoMbs.new(to_kbs + other.to_kbs)
     end
 
     def -(other)
-      MinfoMb.new(value - other.value)
+      MinfoMbs.new(to_kbs - other.to_kbs)
     end
 
     def ==(other)

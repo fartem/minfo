@@ -1,7 +1,8 @@
 module Minfo
   # Memory value representations in gbs
-  class MinfoGb
+  class MinfoGbs
     def initialize(kbs)
+      @kbs = kbs
       @gbs = (kbs.to_f / 1024 / 1024).round(2)
     end
 
@@ -9,12 +10,16 @@ module Minfo
       @gbs
     end
 
+    def to_kbs
+      @kbs
+    end
+
     def +(other)
-      MinfoGb.new(value + other.value)
+      MinfoGbs.new(to_kbs + other.to_kbs)
     end
 
     def -(other)
-      MinfoGb.new(value - other.value)
+      MinfoGbs.new(to_kbs - other.to_kbs)
     end
 
     def ==(other)

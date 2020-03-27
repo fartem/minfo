@@ -1,6 +1,6 @@
 module Minfo
   # Memory value representations in kbs
-  class MinfoKb
+  class MinfoKbs
     def initialize(kbs)
       @kbs = kbs
     end
@@ -10,11 +10,11 @@ module Minfo
     end
 
     def +(other)
-      MinfoKb.new(value + other.value)
+      MinfoKbs.new(value + other.value)
     end
 
     def -(other)
-      MinfoKb.new(value - other.value)
+      MinfoKbs.new(value - other.value)
     end
 
     def ==(other)

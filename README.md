@@ -14,5 +14,5 @@ Usage example
 
 ```ruby
 memory_shot = Minfo::MemoryInfo.new.memory_shot
-puts memory_shot.total.to_gb.value
+puts memory_shot.total.minfo_gbs.value
 ```

@@ -9,8 +9,8 @@ class MinfoUsedTest < Minitest::Test
 
     assert(!used.nil?)
 
-    assert(used.to_kb.value > 0)
-    assert(used.to_mb.value > 0)
-    assert(used.to_gb.value > 0)
+    assert(used.minfo_kbs.value > 0)
+    assert(used.minfo_mbs.value > 0)
+    assert(used.minfo_gbs.value > 0)
   end
 end

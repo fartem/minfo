@@ -4,7 +4,7 @@ module Minfo
   class OSInfoUnavailable < StandardError; end
 
   # Class for manipulating memory information.
-  class MemoryShot
+  class MemoryData
     # Get total memory value.
     # '/proc/meminfo' line: 'MemTotal:'.
     def total

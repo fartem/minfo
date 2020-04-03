@@ -1,4 +1,4 @@
-require_relative 'minfo/memory_shot'
+require_relative 'minfo/memory_data'
 
 module Minfo
   class PlatformError < StandardError; end
@@ -7,7 +7,7 @@ module Minfo
   # If OS is not Linux - raises PlatformError (because supports only Linux).
   class MemoryInfo
     def memory_shot
-      return Minfo::MemoryShot.new if RUBY_PLATFORM.include?('linux')
+      return Minfo::MemoryData.new if RUBY_PLATFORM.include?('linux')
 
       raise PlatformError, "Unsupported OS: #{RUBY_PLATFORM}"
     end

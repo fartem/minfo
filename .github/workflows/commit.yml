@@ -20,3 +20,5 @@ jobs:
     - name: Run tests
       run: bundle exec rake
     - uses: codecov/codecov-action@v1
+      with:
+        file: coverage/index.html
